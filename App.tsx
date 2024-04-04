@@ -4,11 +4,13 @@ import {
   StatusBar,
   useColorScheme,
 } from 'react-native';
-
+import codePush from 'react-native-code-push';
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import Config from './src/Config';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,9 +25,11 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      <Provider store={store}>
       <Config/>
+      </Provider>
     </SafeAreaView>
   );
 }
 
-export default App;
+export default codePush(App);

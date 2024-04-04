@@ -1,8 +1,8 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
-
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -91,6 +91,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+         release {
+      storeFile file('your_key_name.keystore')
+      storePassword 'abcd1234'
+      keyAlias 'your_key_alias'
+      keyPassword 'abcd1234'
+    }
     }
     buildTypes {
         debug {
@@ -99,7 +105,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

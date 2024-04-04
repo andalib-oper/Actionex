@@ -111,6 +111,8 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
     implementation project(':react-native-vector-icons')
+    implementation project(':react-native-keychain')
+	implementation project(':react-native-inappbrowser-reborn')
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

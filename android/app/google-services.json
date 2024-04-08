@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549174502258",
+    "project_id": "actionex-5bf5e",
+    "storage_bucket": "actionex-5bf5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549174502258:android:79579225edd5fe3375b3eb",
+        "android_client_info": {
+          "package_name": "com.actionex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDHKyZf4bOhh1twXJ0nZUolm5LBFgbVGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

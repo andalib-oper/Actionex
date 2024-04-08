@@ -34,6 +34,7 @@ export const logout = (data: any): Logout => ({
 export const getUserDetails = () =>{
   return async (dispatch: any) =>{
     const {email} = await client.getUserDetails()
+    console.log("userDETAILS", email)
     if(email){
       dispatch(userDetails({email: email}))
     }else{

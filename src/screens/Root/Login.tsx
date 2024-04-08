@@ -16,7 +16,7 @@ import {primaryColor} from '../../styles/colors';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import {client} from '../../utils/helpers';
 import {useDispatch} from 'react-redux';
-import {isLoggedIn} from '../../redux/auth/action';
+import {getUserDetails, isLoggedIn} from '../../redux/auth/action';
 import EncryptedStorage from 'react-native-encrypted-storage'
 import { LoginIllustration } from '../../assets/svgImages';
 import { addUserDetails } from '../../firebaseApis';
@@ -28,18 +28,18 @@ const Login = () => {
   const handleSignIn = async () => {
     const token: TokenResponse | null = await client.login();
     if (token) {
-      const details = await client.getUserDetails();
       EncryptedStorage.setItem('token', token.access_token);
       dispatch(isLoggedIn(token.access_token) as any);
-      addUserDetails({email: details.email, id: details.id});
       // User was authenticated
     }
   };
   const handleSignUp = async () => {
     const token: TokenResponse | null = await client.register();
     if (token) {
+      const details = await client.getUserDetails();
       EncryptedStorage.setItem('token', token.access_token);
       dispatch(isLoggedIn(token.access_token) as any);
+      addUserDetails({email: details.email, id: details.id});
       // User was authenticated
     }
   };

@@ -31,5 +31,10 @@ function App(): React.JSX.Element {
     </SafeAreaView>
   );
 }
-
-export default codePush(App);
+const codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
+  updateDialog: true,
+  installMode: codePush.InstallMode.IMMEDIATE,
+  mandatoryInstallMode: codePush.InstallMode.IMMEDIATE,
+}
+export default codePush(codePushOptions)(App);

@@ -18,6 +18,8 @@ import {client} from '../../utils/helpers';
 import {useDispatch} from 'react-redux';
 import {isLoggedIn} from '../../redux/auth/action';
 import EncryptedStorage from 'react-native-encrypted-storage'
+import { LoginIllustration } from '../../assets/svgImages';
+import { addUserDetails } from '../../firebaseApis';
 
 const Login = () => {
   const {fontScale} = useWindowDimensions();
@@ -26,22 +28,25 @@ const Login = () => {
   const handleSignIn = async () => {
     const token: TokenResponse | null = await client.login();
     if (token) {
-      console.log('token signin', token);
+      const details = await client.getUserDetails();
       EncryptedStorage.setItem('token', token.access_token);
       dispatch(isLoggedIn(token.access_token) as any);
+      addUserDetails({email: details.email, id: details.id});
       // User was authenticated
     }
   };
   const handleSignUp = async () => {
     const token: TokenResponse | null = await client.register();
     if (token) {
-      console.log('token signup', token);
+      EncryptedStorage.setItem('token', token.access_token);
+      dispatch(isLoggedIn(token.access_token) as any);
       // User was authenticated
     }
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Actionex OTA Testing</Text>
+      <Text style={styles.text}>Actionex</Text>
+      <LoginIllustration height={height/1.3}/>
       <CustomButton
         title="Sign In"
         onPress={handleSignIn}

@@ -14,6 +14,7 @@ const Config = () => {
   const dispatch = useDispatch()
   const authState = useSelector((state: any)=>state.authState) // Add type annotation for 'state'
   useEffect(()=>{
+    dispatch(tokenRetriver() as any) // Add type assertion for 'dispatch'
     setIsAppReady(true)
   },[client])
   return (

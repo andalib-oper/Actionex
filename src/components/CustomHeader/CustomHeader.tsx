@@ -24,7 +24,7 @@ const makeStyles = (fontScale: number) =>
       padding: 20,
     },
     mainContainer: {
-      paddingHorizontal: 20,
+      paddingHorizontal: 12,
       flexDirection: 'row',
       justifyContent: 'space-between',
     },

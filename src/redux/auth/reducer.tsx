@@ -26,7 +26,6 @@ const authReducer = (
 ): AuthState => {
   switch (action.type) {
       case IS_LOGGED_IN: {
-        console.log("action", action)
       return {
         ...state,
         isLoggedIn: true,

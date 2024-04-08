@@ -185,7 +185,7 @@ const Home = () => {
       <CustomHeader title="Actionex" />
       <View style={{padding: 32}}>
         <View style={styles.mainContainer}>
-          <Text style={styles.lists}>All Lists</Text>
+          <Text style={styles.lists}>All Todo Lists</Text>
           <CustomButton
             variant="secondary"
             title="Add Item"

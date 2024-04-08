@@ -22,11 +22,13 @@ const Profile = () => {
     emailDetails()
   },[])
   return (
-    <View style={{flex:1}}>
+    <View style={{flex: 1}}>
       <CustomHeader title="Actionex" />
       <View style={styles.container}>
         <Image
-          source={require('../../assets/images/profile.png')}
+          source={{
+            uri: 'https://img.freepik.com/premium-photo/male-female-profile-avatar-user-avatars-gender-icons_1020867-75212.jpg?size=626&ext=jpg',
+          }}
           style={{
             width: 150,
             height: 150,
@@ -36,17 +38,17 @@ const Profile = () => {
             marginTop: '20%',
           }}
         />
-        <View style={{marginTop:'15%',}}>
-        <Text style={styles.headerText}>Email Address</Text>
-        <Text style={styles.mainText}>{email}</Text>
+        <View style={{marginTop: '15%'}}>
+          <Text style={styles.headerText}>Email Address</Text>
+          <Text style={styles.mainText}>{email}</Text>
         </View>
       </View>
       <CustomButton
-      title='Logout'
-      onPress={()=>{
-        dispatch(userLogout())
-      }}
-      style={{width: width/1.2, alignSelf:'center', marginBottom:10}}
+        title="Logout"
+        onPress={() => {
+          dispatch(userLogout());
+        }}
+        style={{width: width / 1.2, alignSelf: 'center', marginBottom: 10}}
       />
     </View>
   );
